@@ -1,5 +1,18 @@
 <div class="container">
   <div>
-    <table></table>
+    <table>
+      <thead>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Department</th>
+        <th>Joining Date</th>
+      </thead>
+      <tbody *ngFor="let data of candidateData; let i=index;">
+        <td>{{i+1}}</td>
+        <td>{{data.name}}</td>
+        <td>{{data.department}}</td>
+        <td>{{data.joining_date}}</td>
+      </tbody>
+    </table>
   </div>
 </div>

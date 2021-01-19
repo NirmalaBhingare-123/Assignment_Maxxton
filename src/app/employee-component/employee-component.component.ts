@@ -7,12 +7,16 @@ import { EmployeeServiceService } from "../employee-service.service";
   styleUrls: ["./employee-component.component.css"]
 })
 export class EmployeeComponentComponent implements OnInit {
-  candidate_data = [];
+  candidateData = [];
   constructor(private employeeservice: EmployeeServiceService) {}
 
   ngOnInit() {
-    this.candidate_data = this.employeeservice.getData();
-    console.log("hello....................");
-    console.log("Candidatadataa.........", this.candidate_data);
+    this.candidateData = this.employeeservice.getData();
+    this.sortByName();
+  }
+
+  /* Sort By Name */
+  sortByName() {
+    this.candidateData.sort((a, b) => a.name.localeCompare(b.name));
   }
 }
