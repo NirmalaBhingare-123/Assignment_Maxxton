@@ -8,6 +8,7 @@ import { EmployeeServiceService } from "../employee-service.service";
 })
 export class EmployeeComponentComponent implements OnInit {
   candidateData = [];
+  name: string;
   constructor(private employeeservice: EmployeeServiceService) {}
 
   ngOnInit() {
@@ -18,5 +19,18 @@ export class EmployeeComponentComponent implements OnInit {
   /* Sort By Name */
   sortByName() {
     this.candidateData.sort((a, b) => a.name.localeCompare(b.name));
+  }
+
+  /*Search By Name */
+  searchByName() {
+    if (this.name != "") {
+      this.candidateData = this.candidateData.filter(res => {
+        return res.name
+          .toLocaleLowerCase()
+          .match(this.name.toLocaleLowerCase());
+      });
+    } else if (this.name == "") {
+      this.ngOnInit();
+    }
   }
 }

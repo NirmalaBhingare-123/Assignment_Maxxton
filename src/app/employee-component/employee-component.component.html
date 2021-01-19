@@ -1,5 +1,9 @@
 <div class="container">
   <div>
+    <label>Name</label>
+    <input type="text" [(ngModel)]="name" (input)="searchByName()" />
+  </div>
+  <div>
     <table>
       <thead>
         <th>Id</th>
