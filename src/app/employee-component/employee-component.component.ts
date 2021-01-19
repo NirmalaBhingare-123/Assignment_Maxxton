@@ -9,11 +9,14 @@ import { EmployeeServiceService } from "../employee-service.service";
 export class EmployeeComponentComponent implements OnInit {
   candidateData = [];
   name: string;
+  distinctArray = [];
+  countDistinctArray: number;
   constructor(private employeeservice: EmployeeServiceService) {}
 
   ngOnInit() {
     this.candidateData = this.employeeservice.getData();
     this.sortByName();
+    this.getDistinctDepartmentCount();
   }
 
   /* Sort By Name */
@@ -32,5 +35,15 @@ export class EmployeeComponentComponent implements OnInit {
     } else if (this.name == "") {
       this.ngOnInit();
     }
+  }
+
+  /* Get distinct departments and count of candidates in each.*/
+  getDistinctDepartmentCount() {
+    this.distinctArray = this.candidateData
+      .map(item => item.department)
+      .filter(
+        (value, index, categoryArray) => categoryArray.indexOf(value) === index
+      );
+    this.countDistinctArray = this.distinctArray.length;
   }
 }
