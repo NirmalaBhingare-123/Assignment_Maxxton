@@ -1,5 +1,6 @@
 import { DatePipe } from "@angular/common";
 import { Component, OnInit } from "@angular/core";
+import moment from "moment";
 import { EmployeeServiceService } from "../employee-service.service";
 
 @Component({
@@ -25,7 +26,6 @@ export class EmployeeComponentComponent implements OnInit {
     this.currentDate = this.datepipe.transform(this.currentDate, "dd/MM/yyyy");
     this.candidateData = this.employeeservice.getData();
     this.sortByName();
-    this.findCandidateExpMoreTwo();
     this.getDistinctDepartmentCount();
     this.removeCandidate();
   }
@@ -47,9 +47,6 @@ export class EmployeeComponentComponent implements OnInit {
       this.ngOnInit();
     }
   }
-
-  /* Find all candidates with experience more than 2 years. */
-  findCandidateExpMoreTwo() {}
 
   /* Get distinct departments and count of candidates in each.*/
   getDistinctDepartmentCount() {

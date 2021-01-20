@@ -1,6 +1,7 @@
 <div class="container">
 	<div>
 		<br/>
+		<h4 class="p-1 bg-primary text-white">Sort & Search Data By Name</h4>
 
 		<div class="float-right">
 			<input class="form-control" type="text" placeholder="Search" [(ngModel)]="name" (input)="searchByName()"/>
@@ -24,22 +25,20 @@
 				</table>
 			</div>
 		</div>
-
+		<br/>
+		<br/>
 		<div>
-			<h4>More two exp</h4>
-			<div *ngFor="let data of expMoreTwoArray">{{data}} </div>
-		</div>
-		<div>
-			<h4>Distinct department values</h4>
+			<h4 class="p-1 bg-secondary text-white">Distinct Departments Names</h4>
 			<div *ngFor="let value of distinctArray">{{value}}</div>
-			<h4>Count Distinct department</h4>
+			<h4 class="p-1 bg-secondary text-white">Total Count Of Distinct Department</h4>
 			<h6>{{countDistinctArray}}</h6>
 		</div>
-
+		<br/>
+		<br/>
 		<div>
-			<h4>Removed Candidate from Developemnt department</h4>
-			<table class="table">
-				<thead>
+			<h4 class="p-1 bg-info text-white">Remove Candidate From Development Department</h4>
+			<table class="table table-bordered">
+				<thead class="thead-dark">
 					<th>Id</th>
 					<th>Name</th>
 					<th>Department</th>
