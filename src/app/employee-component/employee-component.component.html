@@ -1,25 +1,34 @@
 <div class="container">
 	<div>
-		<label>Name</label>
-		<input type="text" [(ngModel)]="name" (input)="searchByName()" />
-  </div>
-		<div>
-			<table class="table">
-				<thead>
-					<th>Id</th>
-					<th>Name</th>
-					<th>Department</th>
-					<th>Joining Date</th>
-				</thead>
-				<tbody *ngFor="let data of candidateData; let i=index;">
-					<td>{{i+1}}</td>
-					<td>{{data.name}}</td>
-					<td>{{data.department}}</td>
-					<td>{{data.joining_date}}</td>
-				</tbody>
-			</table>
+		<br/>
+
+		<div class="float-right">
+			<input class="form-control" type="text" placeholder="Search" [(ngModel)]="name" (input)="searchByName()"/>
+		</div>
+			<br/>
+			<br/>
+			<div>
+				<table class="table table-bordered">
+					<thead class="thead-dark">
+						<th>Id</th>
+						<th>Name</th>
+						<th>Department</th>
+						<th>Joining Date</th>
+					</thead>
+					<tbody *ngFor="let data of candidateData; let i=index;">
+						<td>{{i+1}}</td>
+						<td>{{data.name}}</td>
+						<td>{{data.department}}</td>
+						<td>{{data.joining_date}}</td>
+					</tbody>
+				</table>
+			</div>
 		</div>
 
+		<div>
+			<h4>More two exp</h4>
+			<div *ngFor="let data of expMoreTwoArray">{{data}} </div>
+		</div>
 		<div>
 			<h4>Distinct department values</h4>
 			<div *ngFor="let value of distinctArray">{{value}}</div>
