@@ -7,3 +7,5 @@ Typescript/JavaScript).
 
 Output:-
 Done to display the data on page according to above questions.
+Please find below output link on Stackbliz.
+https://stackblitz.com/edit/angular-ivy-arknjn
