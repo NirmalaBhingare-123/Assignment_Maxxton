@@ -1,29 +1,47 @@
 <div class="container">
-  <div>
-    <label>Name</label>
-    <input type="text" [(ngModel)]="name" (input)="searchByName()" />
+	<div>
+		<label>Name</label>
+		<input type="text" [(ngModel)]="name" (input)="searchByName()" />
   </div>
-  <div>
-    <table class="table">
-      <thead>
-        <th>Id</th>
-        <th>Name</th>
-        <th>Department</th>
-        <th>Joining Date</th>
-      </thead>
-      <tbody *ngFor="let data of candidateData; let i=index;">
-        <td>{{i+1}}</td>
-        <td>{{data.name}}</td>
-        <td>{{data.department}}</td>
-        <td>{{data.joining_date}}</td>
-      </tbody>
-    </table>
-  </div>
+		<div>
+			<table class="table">
+				<thead>
+					<th>Id</th>
+					<th>Name</th>
+					<th>Department</th>
+					<th>Joining Date</th>
+				</thead>
+				<tbody *ngFor="let data of candidateData; let i=index;">
+					<td>{{i+1}}</td>
+					<td>{{data.name}}</td>
+					<td>{{data.department}}</td>
+					<td>{{data.joining_date}}</td>
+				</tbody>
+			</table>
+		</div>
 
-  <div>
-    <h4>Distinct department values</h4>
-    <div *ngFor="let value of distinctArray">{{value}}</div>
-    <h4>Count Distinct department</h4>
-    <h6>{{countDistinctArray}}</h6>
-  </div>
-</div>
+		<div>
+			<h4>Distinct department values</h4>
+			<div *ngFor="let value of distinctArray">{{value}}</div>
+			<h4>Count Distinct department</h4>
+			<h6>{{countDistinctArray}}</h6>
+		</div>
+
+		<div>
+			<h4>Removed Candidate from Developemnt department</h4>
+			<table class="table">
+				<thead>
+					<th>Id</th>
+					<th>Name</th>
+					<th>Department</th>
+					<th>Joining Date</th>
+				</thead>
+				<tbody *ngFor="let data of removeCandidataArray; let i=index;">
+					<td>{{i+1}}</td>
+					<td>{{data.name}}</td>
+					<td>{{data.department}}</td>
+					<td>{{data.joining_date}}</td>
+				</tbody>
+			</table>
+		</div>
+	</div>

@@ -11,12 +11,16 @@ export class EmployeeComponentComponent implements OnInit {
   name: string;
   distinctArray = [];
   countDistinctArray: number;
+  removeCandidataArray = [];
+
   constructor(private employeeservice: EmployeeServiceService) {}
 
   ngOnInit() {
     this.candidateData = this.employeeservice.getData();
     this.sortByName();
+    this.findCandidateExpMoreTwo();
     this.getDistinctDepartmentCount();
+    this.removeCandidate();
   }
 
   /* Sort By Name */
@@ -37,6 +41,11 @@ export class EmployeeComponentComponent implements OnInit {
     }
   }
 
+  /* Find all candidates with experience more than 2 years. */
+  findCandidateExpMoreTwo() {
+    console.log("hello........");
+  }
+
   /* Get distinct departments and count of candidates in each.*/
   getDistinctDepartmentCount() {
     this.distinctArray = this.candidateData
@@ -45,5 +54,12 @@ export class EmployeeComponentComponent implements OnInit {
         (value, index, categoryArray) => categoryArray.indexOf(value) === index
       );
     this.countDistinctArray = this.distinctArray.length;
+  }
+
+  /* Remove all candidates from  Development department. */
+  removeCandidate() {
+    this.removeCandidataArray = this.candidateData.filter(
+      data => data.department !== "Development"
+    );
   }
 }
